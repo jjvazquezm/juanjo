@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisor de Clima</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Revisor de Clima</h1>
+            <p>Verifica el clima de tu ubicacion</p>
+        </header>
+        <main>
+            <section class="location-section">
+                <button id="getLocationBtn" class="btn btn-primary">Obtener Mi Ubicacion</button>
+                <div id="locationStatus" class="status-message"></div>
+            </section>
+            <section class="search-section">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Busca una ciudad..." class="input-field">
+                    <button id="searchBtn" class="btn btn-secondary">Buscar</button>
+                </div>
+            </section>
+            <section class="weather-section" id="weatherSection" style="display: none;">
+                <div class="weather-card">
+                    <div class="city-name" id="cityName"></div>
+                    <div class="temperature" id="temperature"></div>
+                    <div class="weather-description" id="description"></div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Sensacion</span>
+                            <span class="detail-value" id="feelsLike"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humedad</span>
+                            <span class="detail-value" id="humidity"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Presion</span>
+                            <span class="detail-value" id="pressure"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Viento</span>
+                            <span class="detail-value" id="windSpeed"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="errorSection" class="error-message" style="display: none;"></section>
+        </main>
+        <footer>
+            <p>Revisor de Clima - JavaScript, Python, JSON</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
