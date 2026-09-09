@@ -1,6 +1,6 @@
 {
   "weather_api_url": "https://api.openweathermap.org/data/2.5",
-  "weather_api_key": "ad2f57fdb49688e0dac842d4cdda49f6",
+  "weather_api_key": "b6b3ff049373fb60193a7082dda094ca",
   "server": {
     "host": "localhost",
     "port": 5000,
