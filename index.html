@@ -11,6 +11,7 @@
         <header>
             <h1>Revisor de Clima</h1>
             <p>Verifica el clima de tu ubicacion</p>
+            <div class="current-date" id="currentDate"></div>
         </header>
         <main>
             <section class="location-section">
@@ -54,6 +55,14 @@
             <p>Revisor de Clima - JavaScript, Python, JSON</p>
         </footer>
     </div>
+    <script>
+        // Mostrar la fecha actual
+        const currentDateElement = document.getElementById('currentDate');
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('es-ES', options);
+        currentDateElement.textContent = formattedDate;
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
