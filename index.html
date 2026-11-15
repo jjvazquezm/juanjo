@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONSULTA EL CLIMA</title>
+    <title>Consulta del Clima</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Clima Actualizado</h1>
-            <p>Verifica el clima de tu ubicacion</p>
+            <h1>Clima Actual</h1>
+            <p>Consulta la temperatura, humedad y calidad del aire</p>
             <div class="current-date" id="currentDate"></div>
         </header>
+
         <main>
             <section class="location-section">
-                <button id="getLocationBtn" class="btn btn-primary">Obtener Mi Ubicacion</button>
-                <div id="locationStatus" class="status-message"></div>
+                <button id="getLocationBtn" class="btn btn-primary">Obtener mi ubicación</button>
+                <div id="locationStatus" class="status-message" aria-live="polite"></div>
             </section>
+
             <section class="search-section">
                 <div class="search-box">
                     <input type="text" id="cityInput" placeholder="Busca una ciudad..." class="input-field">
                     <button id="searchBtn" class="btn btn-secondary">Buscar</button>
                 </div>
             </section>
+
             <section class="weather-section" id="weatherSection" style="display: none;">
                 <div class="weather-card">
                     <div class="city-name" id="cityName"></div>
                     <div class="temperature" id="temperature"></div>
                     <div class="weather-description" id="description"></div>
+
                     <div class="weather-details">
                         <div class="detail-item">
-                            <span class="detail-label">Sensacion</span>
+                            <span class="detail-label">Sensación</span>
                             <span class="detail-value" id="feelsLike"></span>
                         </div>
                         <div class="detail-item">
@@ -39,30 +43,63 @@
                             <span class="detail-value" id="humidity"></span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Presion</span>
+                            <span class="detail-label">Presión</span>
                             <span class="detail-value" id="pressure"></span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Viento</span>
                             <span class="detail-value" id="windSpeed"></span>
                         </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Índice UV</span>
+                            <span class="detail-value" id="uvIndex">--</span>
+                        </div>
+                    </div>
+
+                    <div class="air-quality-box" aria-live="polite">
+                        <div class="aqi-header">
+                            <span>Calidad del aire</span>
+                            <span class="aqi-badge" id="airQualityBadge">--</span>
+                        </div>
+                        <p id="airQualityDescription">Sin información disponible.</p>
+
+                        <div class="aqi-components">
+                            <div class="component-item">
+                                <span>PM2.5</span>
+                                <strong id="pm25">--</strong>
+                            </div>
+                            <div class="component-item">
+                                <span>PM10</span>
+                                <strong id="pm10">--</strong>
+                            </div>
+                            <div class="component-item">
+                                <span>O3</span>
+                                <strong id="o3">--</strong>
+                            </div>
+                            <div class="component-item">
+                                <span>NO2</span>
+                                <strong id="no2">--</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section id="errorSection" class="error-message" style="display: none;"></section>
+
+            <section id="errorSection" class="error-message" style="display: none;" aria-live="assertive"></section>
         </main>
+
         <footer>
-            <p>Revisor de Clima - JavaScript, Python, JSON</p>
+            <p>Revisor de clima · JavaScript · Python · JSON</p>
         </footer>
     </div>
+
     <script>
-        // Mostrar la fecha actual
         const currentDateElement = document.getElementById('currentDate');
         const today = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = today.toLocaleDateString('es-ES', options);
-        currentDateElement.textContent = formattedDate;
+        currentDateElement.textContent = today.toLocaleDateString('es-ES', options);
     </script>
     <script src="script.js"></script>
 </body>
 </html>
+
